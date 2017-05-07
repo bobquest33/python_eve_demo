@@ -70,7 +70,7 @@ if VCAP_CONFIG:
                    '@'
                    '(?P<host>[\.\w]+):(?P<port>\d+)/(?P<database>[\W\w]+).*?$')
             regex = re.compile(seq)
-            match = regex.search(postgres_creds['url'])
+            match = regex.search(postgres_creds['uri'])
             # Deconstruct PostgresURL connection information
             parseURI = match.groupdict()
             POSTGRES_HOST = parseURI['host']
