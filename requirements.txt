@@ -7,3 +7,4 @@ flask_swagger_ui==0.0.3
 Eve_SQLAlchemy==0.4.1
 SQLAlchemy==1.1.9
 pyzmq==16.0.2
+psycopg2
