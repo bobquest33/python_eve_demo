@@ -60,7 +60,8 @@ if VCAP_CONFIG:
     # Read the VCAP_SERVICES environment variable
     decoded_config = json.loads(VCAP_CONFIG)
     # Loop through the service instances to capture connection info
-    for key, value in decoded_config.iteritems():
+    #for key, value in decoded_config.iteritems():
+    for key, value in decoded_config.items():
         # Looking for an instance of a Mongo Bluemix Service
         if key.startswith('postgresql'):
             postgres_creds = decoded_config[key][0]['credentials']
