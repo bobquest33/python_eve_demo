@@ -1,1 +1,1 @@
-web: python load_rest_server.py
+web: python loans_rest_server.py
