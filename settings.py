@@ -66,19 +66,19 @@ if VCAP_CONFIG:
         print(key,":",value)
         if key.startswith('postgresql') or key.startswith('elephantsql'):
             postgres_creds = decoded_config[key][0]['credentials']
-            seq = (r'^postgresql\:\/\/(?P<username>[\W\w]+):(?P<password>[\W\w]+)'
-                   '@'
-                   '(?P<host>[\.\w]+):(?P<port>\d+)/(?P<database>[\W\w]+).*?$')
-            regex = re.compile(seq)
-            match = regex.search(postgres_creds['uri'])
+            #seq = (r'^postgresql\:\/\/(?P<username>[\W\w]+):(?P<password>[\W\w]+)'
+            #       '@'
+            #       '(?P<host>[\.\w]+):(?P<port>\d+)/(?P<database>[\W\w]+).*?$')
+            #regex = re.compile(seq)
+            #match = regex.search(postgres_creds['uri'])
             # Deconstruct PostgresURL connection information
-            parseURI = match.groupdict()
-            POSTGRES_HOST = parseURI['host']
-            POSTGRES_PORT = int(parseURI['port'])
-            POSTGRES_USERNAME = parseURI['username']
-            POSTGRES_PASSWORD = parseURI['password']
-            POSTGRES_DBNAME = parseURI['database']
-            SQLALCHEMY_DATABASE_URI=postgres_creds
+            #parseURI = match.groupdict()
+            #POSTGRES_HOST = parseURI['host']
+            #POSTGRES_PORT = int(parseURI['port'])
+            #POSTGRES_USERNAME = parseURI['username']
+            #POSTGRES_PASSWORD = parseURI['password']
+            #POSTGRES_DBNAME = parseURI['database']
+            SQLALCHEMY_DATABASE_URI=postgres_creds['uri']
             continue
 
 # Enable URL_PREFIX.  Used in conjunction with API_VERSION to build
