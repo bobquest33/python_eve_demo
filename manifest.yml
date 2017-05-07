@@ -1,0 +1,14 @@
+---
+declared-services:
+  myElephant:
+    label: elephantsql
+    plan: turtle
+
+applications:
+- name: loans-demo-blockchain
+  memory: 256M 
+  instances: 1
+  domain: mybluemix.net
+  path: .
+  services:
+    - myElephant

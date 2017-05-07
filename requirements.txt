@@ -1,0 +1,9 @@
+Eve==0.5.3
+Eve_Swagger==0.0.7
+cloudpickle==0.2.2
+requests==2.12.4
+Faker==0.7.3
+flask_swagger_ui==0.0.3
+Eve_SQLAlchemy==0.4.1
+SQLAlchemy==1.1.9
+pyzmq==16.0.2
