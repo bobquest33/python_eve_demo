@@ -63,6 +63,7 @@ if VCAP_CONFIG:
     #for key, value in decoded_config.iteritems():
     for key, value in decoded_config.items():
         # Looking for an instance of a Mongo Bluemix Service
+        print(key)
         if key.startswith('postgresql'):
             postgres_creds = decoded_config[key][0]['credentials']
             seq = (r'^postgresql\:\/\/(?P<username>[\W\w]+):(?P<password>[\W\w]+)'
