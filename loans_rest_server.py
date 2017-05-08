@@ -12,6 +12,8 @@ import datetime
 import random
 from flask_swagger_ui import get_swaggerui_blueprint
 from eve_swagger import swagger, add_documentation
+from flask import send_from_directory, Response, request, json
+
 
 from settings import (SWAGGER_URL,
                       API_URL,
@@ -20,6 +22,8 @@ from settings import (SWAGGER_URL,
                       VCAP_CONFIG,
                       SWAGGER_INFO,
                       DEBUG,
+                      URL_PREFIX,
+                      API_VERSION,
                       SQLALCHEMY_DATABASE_URI)
 
 phases = ["Eligibility Check","Marriage Check","Spouse Consent","Form Available","Admin Approval"]
@@ -126,10 +130,15 @@ DOMAIN = {
 SETTINGS = {
     'DEBUG': DEBUG,
     'SQLALCHEMY_DATABASE_URI': SQLALCHEMY_DATABASE_URI,
-    'DOMAIN': DOMAIN
+    'DOMAIN': DOMAIN,
+    #'URL_PREFIX':URL_PREFIX,
+    #'API_VERSION':API_VERSION,
 }
 
+
+
 app = Eve(auth=None, settings=SETTINGS, validator=ValidatorSQL, data=SQL)
+
 
 # required. See http://swagger.io/specification/#infoObject for details.
 app.config['SWAGGER_INFO'] = SWAGGER_INFO
